@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="ISO-8859-1">
+<title>Insert title here</title>
+
+<script type = "text/javascript" src = "Resources/js/app.js"> </script>
+
+<link rel = " stylesheet" href = "Resources/CSS/style.css">
+
+</head>
+<body>
+
+<!--body section -->
+
+<h2> Registration form</h2>
+
+<hr>
+
+<!--Create Form -->
+<form 
+	action = "register.html" 
+	method = "get" 
+	name = "regForm" 
+	onsubmit = "return validate()"
+	>
+
+<table 
+	border = "1"
+	>
+		
+		<tr>  
+			<td>  
+				Enter First Name : 
+			</td>
+			<td>  
+				<input type = "text" name = "txtFirstName">
+			</td>
+		</tr>
+		<tr>  
+			<td> 
+				Enter Password : 
+			</td>
+			<td>  
+				<input type = "password" name = "txtPassword">
+			</td>
+		</tr>
+		
+		<tr>  
+			<td>  
+				Enter email : 
+			</td>
+			<td>  
+				<input type = "email" name = "txtemail">
+			</td>
+		</tr>
+		<tr>  
+			<td>  
+				Male <input type = "radio" name = "gender" value = "Male">
+				Female <input type = "radio" name = "gender" value = "Female">	
+			</td>
+		</tr>	
+		
+		<tr>
+    		<td>Select Age Group :</td>
+    		<td>
+        		<select>
+            		<option>Select</option>
+            		<option value="21-25">21 - 25</option>
+            		<option value="26-30">26 - 30</option>
+            		<option value="31-35">31 - 35</option>
+        		</select>
+    		</td>
+		</tr>
+		<tr>
+		<td> 
+			<input type = "checkbox" name = "terms"> 
+		</td>
+		<td> 
+			Terms and Condition 
+		</td>
+		</tr>
+		
+		<tr>
+		<td>
+    		<input type="button" value="LOGIN" onclick="location.href='login.html'">
+		</td>
+			<td> 
+				<input type = "submit" value = "REGISTER" >
+			</td>
+		</tr>
+	</table>
+		
+</form>
+</body>
+</html>
