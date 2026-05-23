@@ -65,7 +65,7 @@ public class RegisterationServlet extends HttpServlet {
 		}catch (SQLException e1) {
 			// TODO Auto-generated catch block
 			e1.printStackTrace();
-			System.out.println("SQL");
+			
 		}
 		
 		
