@@ -1,7 +1,5 @@
 package com.app;
 
-import java.util.List;
-
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
@@ -25,13 +23,11 @@ public class App {
 		InstructorDetails instructorDetails = new InstructorDetails("singing","girishjava.com");
 		Instructor instructor = new Instructor("Girish","Rane","ranegirish24@gmail.com",instructorDetails);
 		
-		session.save(instructor);
+		session.persist(instructor);
 		
 //		Instructor instructor1 = session.get(Instructor.class, 1);
 //		System.out.println(instructor1);
 
-		
-		
 		
 		
 		

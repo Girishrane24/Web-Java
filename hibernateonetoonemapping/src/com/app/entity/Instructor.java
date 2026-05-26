@@ -1,5 +1,7 @@
 package com.app.entity;
 
+import org.hibernate.annotations.JoinColumnOrFormula;
+
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
@@ -29,7 +31,7 @@ public class Instructor {
 	@Column
 	private String email;
 	
-	
+	  @JoinColumn()
 	@OneToOne(mappedBy = "instructiondetails",cascade = CascadeType.ALL)
 	// for one to one mapping unidirectional
 
