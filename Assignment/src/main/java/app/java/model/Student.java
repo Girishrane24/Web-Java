@@ -4,16 +4,18 @@ import lombok.Data;
 
 @Data
 public class Student {
-	
-	private String PRN;
-	private String StudentName;
-	private double Subject1;
-	private double Subject2;
-	private double Subject3;
-	private double Subject4;
-	private double Subject5;
-	private double Total;
-	private double percentage;
-	private String statusval;
-	
+
+    private String prn;
+    private String studentName;
+
+    private double subject1;
+    private double subject2;
+    private double subject3;
+    private double subject4;
+    private double subject5;
+
+    private double total;
+    private double percentage;
+
+    private String statusval;
 }

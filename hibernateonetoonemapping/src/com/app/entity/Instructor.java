@@ -1,11 +1,9 @@
 package com.app.entity;
 
-import org.hibernate.annotations.Columns;
-import org.hibernate.annotations.Generated;
-
 import jakarta.persistence.CascadeType;
 import jakarta.persistence.Column;
 import jakarta.persistence.Entity;
+import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.JoinColumn;
@@ -22,15 +20,29 @@ import lombok.Setter;
 public class Instructor {
 	
 	@Id
-//	@Generated(strategy = GenerationType.IDENTITY)
-	@Generated
+	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	@Column
 	private String firstName;
 	@Column
 	private String lastName;
+	@Column
 	private String email;
-	@OneToOne(cascade = CascadeType.ALL)
-	@JoinColumn(name = "Instructor_detail_id")
+	
+	
+	@OneToOne(mappedBy = "instructiondetails",cascade = CascadeType.ALL)
+	// for one to one mapping unidirectional
+
+	// for one to one mapping  bidirectional
+	
 	private InstructorDetails instructordetails;
+	public Instructor(String firstName, String lastName, String email, InstructorDetails instructordetails) {
+		super();
+		this.firstName = firstName;
+		this.lastName = lastName;
+		this.email = email;
+		this.instructordetails = instructordetails;
+	}
+	
+	
 }

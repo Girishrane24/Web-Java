@@ -67,7 +67,7 @@ public class RegistrationServlet extends HttpServlet {
 		System.out.println("I am here in registration form");
 		// create new object for Student class
 		Student e = new Student();
-		e.setPRN(studprn);
+		e.setPrn(studprn);
 		e.setStudentName(studname);
 		e.setSubject1(sub1);
 		e.setSubject2(sub2);
@@ -78,26 +78,17 @@ public class RegistrationServlet extends HttpServlet {
 		e.setPercentage(percentage);
 		e.setStatusval(statusval);
 		
-		try {
-			int status = StudentDAO.StudentRegistration(e);
-			
-				if(status == 1) {
+		int status = StudentDAO.StudentRegistration(e);
+		
+			if(status == 1) {
 
-				    pw.write("<h2>Registration Successful</h2>");
-				    
-				    pw.write("<h2> Please refresh the page for new student update </h2>");
-				}
-				else {
-				    pw.write("<h1>Registration Failed</h1>");
-				}
-			
-		}catch(ClassNotFoundException e1) {
-			e1.printStackTrace();
-		}catch (SQLException e1) {
-			// TODO Auto-generated catch block
-			e1.printStackTrace();
-			
-		}
+			    pw.write("<h2>Registration Successful</h2>");
+			    
+			    pw.write("<h2> Please refresh the page for new student update </h2>");
+			}
+			else {
+			    pw.write("<h1>Registration Failed</h1>");
+			}
 	}
 
 	/**

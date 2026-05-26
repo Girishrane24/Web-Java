@@ -3,55 +3,44 @@ package com.app.dao;
 import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.PreparedStatement;
-import java.sql.SQLException;
 
 import app.java.model.Student;
 
 public class StudentDAO {
 
-    // static method to create connection with database
-    public static Connection getConnection()
-            throws ClassNotFoundException, SQLException {
+    public static Connection getConnection() {
 
-        // Load Driver
-        Class.forName("com.mysql.cj.jdbc.Driver");
-        System.out.println("Driver Found");
+        Connection con = null;
 
-        // Create Connection
-        Connection con = DriverManager.getConnection(
-                "jdbc:mysql://localhost:3306/Resultdb",
-                "root",
-                "root");
+        try {
 
-        System.out.println("Connection Established");
+            Class.forName("com.mysql.cj.jdbc.Driver");
+
+            con = DriverManager.getConnection(
+                    "jdbc:mysql://localhost:3306/Resultdb",
+                    "root",
+                    "root");
+
+        } catch (Exception e) {
+
+            e.printStackTrace();
+        }
 
         return con;
     }
 
-    // method to insert student data
-    public static int StudentRegistration(Student e1)
-            throws SQLException, ClassNotFoundException {
+    public static int StudentRegistration(Student e1) {
 
-        int i = 0;
+        int status = 0;
 
         try {
 
-            // check object
-            System.out.println("e1 = " + e1);
-
-            // create connection
             Connection con = getConnection();
 
-            // prepare SQL query
             PreparedStatement pstmt = con.prepareStatement(
-                    "INSERT INTO Student "
-                    + "(PRN,StudentName,Subject1,Subject2,"
-                    + "Subject3,Subject4,Subject5,Total,"
-                    + "Percentage,Statusval) "
-                    + "VALUES(?,?,?,?,?,?,?,?,?,?)");
+                    "INSERT INTO Student VALUES(?,?,?,?,?,?,?,?,?,?)");
 
-            // set values
-            pstmt.setString(1, e1.getPRN());
+            pstmt.setString(1, e1.getPrn());
             pstmt.setString(2, e1.getStudentName());
 
             pstmt.setDouble(3, e1.getSubject1());
@@ -63,23 +52,17 @@ public class StudentDAO {
             pstmt.setDouble(8, e1.getTotal());
             pstmt.setDouble(9, e1.getPercentage());
 
-            
             pstmt.setString(10, e1.getStatusval());
 
-            // execute query
-            i = pstmt.executeUpdate();
-            	
-            System.out.println("Rows Inserted = " + i);
+            status = pstmt.executeUpdate();
 
-            // close connection
             con.close();
 
-        } catch (Exception e2) {
+        } catch (Exception e) {
 
-            // print actual error
-            e2.printStackTrace();
+            e.printStackTrace();
         }
 
-        return i;
+        return status;
     }
 }

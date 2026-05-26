@@ -18,7 +18,10 @@ public class App {
 //				.configure("hibernate.cfg.xml")
 //				.addAnnotatedClass(Student.class)
 //				.buildSessionFactory();
-		SessionFactory factory = new Configuration().configure("hibernate.cfg.xml").addAnnotatedClass(Student.class).buildSessionFactory();
+		SessionFactory factory = new Configuration()
+								.configure("hibernate.cfg.xml")
+								.addAnnotatedClass(Student.class)
+								.buildSessionFactory();
 		
 		// 2. Get Session
 		Session session = factory.openSession();
@@ -54,12 +57,12 @@ public class App {
 //		
 //		
 		// d . delete statement
-//		System.out.println("Enter ID : ");
-//		int id = scanner.nextInt();
-//		Student student = session.get(Student.class, id);
-//		session.remove(student);
-//		
-//		
+		System.out.println("Enter ID : ");
+		int id = scanner.nextInt();
+		Student student = session.get(Student.class, id);
+		session.remove(student);
+		
+		
 		
 		
 		
