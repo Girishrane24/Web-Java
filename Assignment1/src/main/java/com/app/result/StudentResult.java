@@ -12,6 +12,8 @@ import java.sql.DriverManager;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 
+import app.java.model.Student;
+
 /**
  * Servlet implementation class Result
  */
@@ -58,38 +60,62 @@ public class StudentResult extends HttpServlet {
 
             ResultSet rs = pstmt.executeQuery();
 
+            
+            
             if (rs.next()) {
 
-                pw.write("<h1>Student Result</h1>");
+            	pw.write("<html>");
+            	pw.write("<head>");
+            	pw.write("<title>Student Result</title>");
+            	pw.write("<link rel='stylesheet' href='/Assignment1/src/main/webapp/resourses/css/resultstyle.css'>");
+            	pw.write("</head> ");
+            	pw.write("<body>");
 
-                pw.write("<table border='1'>");
+            	pw.write("<div class='result-container'>");
 
-                pw.write("<tr>");
-                pw.write("<td>PRN</td>");
-                pw.write("<td>" + rs.getString("PRN") + "</td>");
-                pw.write("</tr>");
+            	pw.write("<h1>Student Result</h1>");
 
-                pw.write("<tr>");
-                pw.write("<td>Name</td>");
-                pw.write("<td>" + rs.getString("StudentName") + "</td>");
-                pw.write("</tr>");
+            	pw.write("<table>");
 
-                pw.write("<tr>");
-                pw.write("<td>Total</td>");
-                pw.write("<td>" + rs.getDouble("Total") + "</td>");
-                pw.write("</tr>");
+            	pw.write("<tr>");
+            	pw.write("<td>PRN</td>");
+            	pw.write("<td>" + rs.getString("PRN") + "</td>");
+            	pw.write("</tr>");
 
-                pw.write("<tr>");
-                pw.write("<td>Percentage</td>");
-                pw.write("<td>" + rs.getDouble("Percentage") + "</td>");
-                pw.write("</tr>");
+            	pw.write("<tr>");
+            	pw.write("<td>Name</td>");
+            	pw.write("<td>" + rs.getString("StudentName") + "</td>");
+            	pw.write("</tr>");
 
-                pw.write("<tr>");
-                pw.write("<td>Status</td>");
-                pw.write("<td>" + rs.getString("Statusval") + "</td>");
-                pw.write("</tr>");
+            	pw.write("<tr>");
+            	pw.write("<td>Total</td>");
+            	pw.write("<td>" + rs.getDouble("Total") + "</td>");
+            	pw.write("</tr>");
 
-                pw.write("</table>");
+            	pw.write("<tr>");
+            	pw.write("<td>Percentage</td>");
+            	pw.write("<td>" + rs.getDouble("Percentage") + "</td>");
+            	pw.write("</tr>");
+
+            	pw.write("<tr>");
+            	pw.write("<td>Status</td>");
+            	pw.write("<td>" + rs.getString("Statusval") + "</td>");
+            	pw.write("</tr>");
+
+            	pw.write("</table>");
+
+            	pw.write("</div>");
+
+            	pw.write("</body>");
+            	pw.write("</html>");
+            	
+//            	
+//            	if(e.getStatusval() == "pass") {
+//            		pw.write("<h1>Congratulations !!!! you are passed !!!! </h1>");
+//            	}
+//            	else {
+//            		pw.write("<h1>Ohh sorry, you are Fail!!! </h1>");
+//            	}
 
             } else {
 

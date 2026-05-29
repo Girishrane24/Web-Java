@@ -84,7 +84,11 @@ public class RegistrationServlet extends HttpServlet {
 
 			    pw.write("<h2>Registration Successful</h2>");
 			    
-			    pw.write("<h2> Please refresh the page for new student update </h2>");
+			    //pw.write("<h2> Please refresh the page for new student update </h2>");
+			    
+			    pw.write("<h2> Please add new Student Details : <a href='Admin.html'>  </h2>");
+			    pw.write("<h2> <a href = 'index.html'>Home page </h2>");
+			    
 			}
 			else {
 			    pw.write("<h1>Registration Failed</h1>");
