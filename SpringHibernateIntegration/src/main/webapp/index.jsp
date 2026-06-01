@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>hello </h2>
+<a href="customer/list"> Click here....</a>
+
 </body>
 </html>

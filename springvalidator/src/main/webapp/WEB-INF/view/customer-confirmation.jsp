@@ -7,6 +7,7 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>hello </h2>
+Customer Confirmed : ${theCustomer.firstName }  ${theCustomer.lastName }
+
 </body>
 </html>

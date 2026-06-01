@@ -7,6 +7,6 @@
 <title>Insert title here</title>
 </head>
 <body>
-	<h2>hello </h2>
+<h2> <%response.sendRedirect("customer/showForm"); %></h2>
 </body>
 </html>

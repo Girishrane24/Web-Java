@@ -11,7 +11,7 @@ import com.app.entity.Customer;
 import jakarta.validation.Valid;
 
 @Controller
-@RequestMapping("Customer")
+@RequestMapping("/customer")
 public class CustomerController {
 
 	@RequestMapping("/showForm")
@@ -19,7 +19,7 @@ public class CustomerController {
 	{
 		Customer customer = new Customer();
 		theModel.addAttribute("theCustomer",customer);
-		return "Customer-form";
+		return "customer-form";
 	}
 	
 	@RequestMapping("/process")
@@ -30,11 +30,11 @@ public class CustomerController {
 		System.out.println(customer);
 		if(theBindingResult.hasErrors()) {
 			System.out.println("theBindingResult.hasErrors()");
-			return "Customer-form";
+			return "customer-form";
 		}
 		else
 		{
-			return "Customer-confirmation";
+			return "customer-confirmation";
 		}
 	}
 	
